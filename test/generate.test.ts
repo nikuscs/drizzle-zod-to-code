@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { generateIndex, tableNameToSchemaName } from "../src/generate";
-import { generateSchemas } from "../src/generate";
+import { generateIndex, tableNameToSchemaName } from "../src/generate.js";
+import { generateSchemas } from "../src/generate.js";
 import * as pg from "drizzle-orm/pg-core";
 
 describe("tableNameToSchemaName", () => {
@@ -65,9 +65,9 @@ export type {
   UserInsert,
   UserUpdate
 };
-`
+`;
 
-		expect(result).toBe(expectedSchema)
+		expect(result).toBe(expectedSchema);
 	});
 });
 
@@ -79,9 +79,9 @@ describe("generate index", () => {
 			age: pg.integer().notNull(),
 		});
 
-		const result = await generateIndex(["users", "colors"])
-		const lines = result.split("\n")
-		expect(lines[0]).toBe("export * from './User.js';")
-		expect(lines[1]).toBe("export * from './Color.js';")
-	})
-})
+		const result = await generateIndex(["users", "colors"]);
+		const lines = result.split("\n");
+		expect(lines[0]).toBe("export * from './user.js';");
+		expect(lines[1]).toBe("export * from './color.js';");
+	});
+});

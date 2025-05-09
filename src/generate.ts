@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import type { Table } from "drizzle-orm";
 import { generateSelectSchema, generateUpdateSchema, generateInsertSchema } from "./schema.js";
 import { singularize } from "inflection";
-import { pascalCase } from "change-case";
+import { camelCase, pascalCase } from "change-case";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const templatePath = join(__dirname, "templates");
@@ -30,7 +30,7 @@ const generateSchemas = async (table: Table, tableName: string) => {
 
 const generateIndex = async (tableNames: string[]) => {
 	return eta.render("index", {
-		tableNames: tableNames.map((name) => tableNameToSchemaName(name)),
+		tableNames: tableNames.map((name) => camelCase(tableNameToSchemaName(name))),
 	});
 };
 

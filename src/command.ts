@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { parseConfig } from "./config.js";
 import { extractDrizzleTables } from "./analyze.js";
 import { generateSchemas, generateIndex, tableNameToSchemaName } from "./generate.js";
+import { camelCase } from "change-case";
 
 export const setupCommand = () => {
 	const program = new Command();
@@ -33,7 +34,8 @@ export const setupCommand = () => {
 
 				for (const [tableName, table] of Object.entries(tables)) {
 					const schema = await generateSchemas(table, tableName);
-					const fileName = `${tableNameToSchemaName(tableName)}.ts`;
+					const schemaName = tableNameToSchemaName(tableName);
+					const fileName = `${camelCase(schemaName)}.ts`;
 					output[fileName] = schema;
 				}
 
