@@ -1,0 +1,23 @@
+import { z } from "zod";
+
+const <%= it.schemaName %>SelectSchema = <%= it.selectSchema %>;
+
+const <%= it.schemaName %>UpdateSchema = <%= it.updateSchema %>;
+
+const <%= it.schemaName %>InsertSchema = <%= it.insertSchema %>;
+
+type <%= it.schemaName %>Select = z.infer<typeof <%= it.schemaName %>SelectSchema>;
+type <%= it.schemaName %>Insert = z.infer<typeof <%= it.schemaName %>InsertSchema>;
+type <%= it.schemaName %>Update = z.infer<typeof <%= it.schemaName %>UpdateSchema>;
+
+export {
+  <%= it.schemaName %>SelectSchema,
+  <%= it.schemaName %>UpdateSchema,
+  <%= it.schemaName %>InsertSchema
+};
+
+export type {
+  <%= it.schemaName %>Select,
+  <%= it.schemaName %>Insert,
+  <%= it.schemaName %>Update
+};

@@ -1,0 +1,56 @@
+{
+  "name": "@lucaconlaq/drizzle-zod-to-code",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "drizzle-zod-to-code": "./generator"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucaconlaq/drizzle-zod-to-code"
+  },
+  "description": "Generate Zod schemas (as code) from Drizzle ORM schemas",
+  "files": [
+    "dist",
+    "generator"
+  ],
+  "keywords": [
+    "drizzle",
+    "postgress",
+    "mysql",
+    "sqlite",
+    "drizzle-zod",
+    "zod",
+    "codegen",
+    "typescript",
+    "serialization",
+    "schema",
+    "validation"
+  ],
+  "author": "lucaconlaq",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && cp -r src/templates dist/",
+    "test": "vitest",
+    "format": "biome format --write src test",
+    "lint": "biome lint --write src test"
+  },
+  "dependencies": {
+    "@lucaconlaq/zod-to-code": "^0.1.1",
+    "change-case": "^5.4.4",
+    "commander": "^13.1.0",
+    "drizzle-zod": "^0.7.1",
+    "esbuild": "^0.25.4",
+    "eta": "^3.5.0",
+    "inflection": "^3.0.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/inflection": "^1.13.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.1"
+  }
+}

@@ -1,0 +1,3 @@
+<% for (const tableName of it.tableNames) { %>
+export * from './<%= tableName %>.js';
+<% } %>
