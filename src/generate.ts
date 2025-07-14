@@ -9,7 +9,7 @@ import { camelCase, pascalCase } from "change-case";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const templatePath = join(__dirname, "templates");
 
-const eta = new Eta({ views: templatePath });
+const eta = new Eta({ views: templatePath, autoEscape: false });
 
 const tableNameToSchemaName = (tableName: string) => {
 	return pascalCase(singularize(tableName));
