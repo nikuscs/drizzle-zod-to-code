@@ -1,6 +1,6 @@
 {
   "name": "@lucaconlaq/drizzle-zod-to-code",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,10 @@
     "build": "tsc && cp -r src/templates dist/",
     "test": "vitest",
     "format": "biome format --write src test",
-    "lint": "biome lint --write src test"
+    "lint": "biome lint --write src test",
+    "release:minor": "npm version minor --no-git-tag-version && npm run build && npm publish --access public",
+    "release:patch": "npm version patch --no-git-tag-version && npm run build && npm publish --access public",
+    "release:major": "npm version major --no-git-tag-version && npm run build && npm publish --access public"
   },
   "dependencies": {
     "@lucaconlaq/zod-to-code": "^0.1.3",
